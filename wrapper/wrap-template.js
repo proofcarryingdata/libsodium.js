@@ -611,7 +611,7 @@
     typeof exports === "object" &&
     typeof exports.nodeName !== "string"
   ) {
-    expose_wrappers(exports, require("/*{{libsodium}}*/"));
+    expose_wrappers(exports, require("@pcd//*{{libsodium}}*/"));
   } else {
     root.sodium = expose_wrappers((root.commonJsStrict = {}), root.libsodium);
   }

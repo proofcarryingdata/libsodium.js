@@ -1,3 +1,24 @@
+# Zupass libsodium fork
+
+This repository is a fork of libsodium, with a custom build configuration to
+produce a smaller distributable, tuned for the needs of the Zupass project.
+
+See the commit history for changes to the standard libsodium.
+
+Import changes are:
+- Deleted unused wrapper symbols from `./wrapper/symbols`
+- Amended `./wrapper/wrap-template.js` to add a `@pcd/` prefix to the required
+  libsodium library
+- Amended `libsodium/dist-build/emscripten.sh` to change the set of included
+  functions for the sodium build, and to comment out the line which builds a
+  fallback JavaScript version of libsodium (unnecessary as it's a fallback for
+  the WASM build, and WASM is already mandatory for us).
+
+To create a new build, run `make clean && make`. To publish new packages, run
+`./yarn-publish`.
+
+Below is the regular README.
+
 # libsodium.js
 
 ## Overview
